@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rezervacije · Kavarna Visoko</title>
+<meta name="description" content="Rezervacije mize, najem dvorane v štali in poročnega paviljona ter teniškega igrišča na Dvorcu Visoko.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header" id="vrh">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt=""></span>
+      <span class="brand-text">Kavarna<em>Visoko</em></span>
+    </a>
+    <nav class="main-nav" aria-label="Glavni meni">
+      <a href="index.html">Domov</a>
+      <a href="zgodba.html">Zgodba</a>
+      <a href="ponudba.html">Ponudba</a>
+      <a href="okolica.html">Okolica</a>
+      <a href="dogodki.html">Dogodki</a>
+    </nav>
+    <a href="rezervacije.html" class="btn btn-line nav-cta">Rezervacije</a>
+    <button class="burger" id="burger" aria-label="Odpri meni" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobilni meni">
+      <a href="index.html">Domov</a>
+      <a href="zgodba.html">Zgodba</a>
+      <a href="ponudba.html">Ponudba</a>
+      <a href="okolica.html">Okolica</a>
+      <a href="dogodki.html">Dogodki</a>
+    <a href="rezervacije.html">Rezervacije</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow reveal">Obiščite nas</p>
+    <h1 class="reveal">Rezervacije in najem prostorov</h1>
+    <p class="hero-lead reveal">Mizo v kavarni, teniško igrišče ali dvorec za vaš največji dan &mdash; vse povprašajte na enem mestu.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="booking-layout reveal">
+      <div class="booking-list" role="tablist" aria-label="Izberite dejavnost za rezervacijo">
+        <button class="booking-item active" type="button"
+          data-img="slike/kava.png"
+          data-title="Miza v kavarni"
+          data-desc="Rezervirajte mizo za kavo, sladice ali počasno popoldne na terasi.">
+          <span class="booking-item-label">Miza v kavarni</span>
+        </button>
+        <button class="booking-item" type="button"
+          data-img="slike/paviljon.jpeg"
+          data-title="Poročni paviljon"
+          data-desc="Civilna poroka pred dvorcem, pod lesenim paviljonom z razgledom na griče Poljanske doline.">
+          <span class="booking-item-label">Poročni paviljon</span>
+        </button>
+        <button class="booking-item" type="button"
+          data-img="slike/štala.png"
+          data-title="Dvorana v štali"
+          data-desc="Prenovljena dvorana z obokanim stropom za slavje, pogostitev in ples do poznih ur.">
+          <span class="booking-item-label">Dvorana v štali</span>
+        </button>
+        <button class="booking-item" type="button"
+          data-img="slike/tenis v belem side.png"
+          data-title="Teniško igrišče"
+          data-desc="Isto travnato igrišče, ki ga je uredil dr. Tavčar. Rezervacija obvezna vsaj dva delovna dni prej.">
+          <span class="booking-item-label">Teniško igrišče</span>
+        </button>
+        <button class="booking-item" type="button"
+          data-img="slike/kolesa.jpeg"
+          data-title="Izposoja e-koles"
+          data-desc="Štiri električna kolesa za raziskovanje Poljanske doline, s priloženima zemljevidoma poti.">
+          <span class="booking-item-label">Izposoja e-koles</span>
+        </button>
+      </div>
+
+      <div class="booking-visual">
+        <img id="bookingImage" src="slike/kava.png" alt="Miza v kavarni">
+        <div class="booking-visual-caption">
+          <h3 id="bookingTitle">Miza v kavarni</h3>
+          <p id="bookingDesc">Rezervirajte mizo za kavo, sladice ali počasno popoldne na terasi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt visit">
+  <div class="wrap visit-grid">
+    <div class="visit-info reveal">
+      <p class="eyebrow">Kontakt</p>
+      <h2>Pridite na kavo &mdash; ali na ogled za vaš dogodek</h2>
+      <dl class="info-list">
+        <div><dt>Naslov</dt><dd>Visoko pri Poljanah 1, 4220 Škofja Loka</dd></div>
+        <div><dt>Delovni čas kavarne</dt><dd>Vsak dan 9.00&ndash;19.00</dd></div>
+        <div><dt>Telefon</dt><dd>030 489 177</dd></div>
+        <div><dt>E-pošta</dt><dd>dvorec.visoko@poljanskadolina.com</dd></div>
+      </dl>
+      <div class="socials">
+        <a href="https://www.instagram.com/dvorec.visoko" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100085491713215" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h3l1-4h-4v-2a1 1 0 0 1 1-1z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <form class="visit-form reveal" id="visitForm" action="https://formspree.io/f/xwvdgajq" method="POST">
+      <p class="form-title">Pošljite povpraševanje</p>
+      <input type="hidden" name="_subject" value="Novo povpraševanje &ndash; Kavarna Visoko">
+      <label>
+        <span>Ime in priimek</span>
+        <input type="text" name="ime" placeholder="Vaše ime" required>
+      </label>
+      <label>
+        <span>E-naslov</span>
+        <input type="email" name="email" placeholder="ime@primer.si" required>
+      </label>
+      <label>
+        <span>Namen povpraševanja</span>
+        <select name="namen">
+          <option>Miza v kavarni</option>
+          <option>Poroka &mdash; dvorana v štali</option>
+          <option>Poroka &mdash; poročni paviljon</option>
+          <option>Najem teniškega igrišča</option>
+          <option>Izposoja e-koles</option>
+          <option>Drugo</option>
+        </select>
+      </label>
+      <label>
+        <span>Sporočilo</span>
+        <textarea name="sporocilo" rows="4" placeholder="Datum, ura, število oseb …"></textarea>
+      </label>
+      <button type="submit" class="btn btn-solid">Pošlji povpraševanje</button>
+      <p class="form-status" id="formStatus" role="status" hidden></p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <a href="index.html" class="brand brand-footer">
+        <span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt=""></span>
+        <span class="brand-text">Kavarna<em>Visoko</em></span>
+      </a>
+      <p class="footer-note">Visoko pri Poljanah 1, 4220 Škofja Loka &mdash; v okrilju Dvorca Visoko, last Občine Gorenja vas &ndash; Poljane.</p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-heading">Kontakt</p>
+      <p class="footer-line">030 489 177</p>
+      <p class="footer-line"><a href="mailto:dvorec.visoko@poljanskadolina.com">dvorec.visoko@poljanskadolina.com</a></p>
+      <p class="footer-line"><a href="https://www.poljanskadolina.com/sl/">poljanskadolina.com</a></p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-heading">Sledite nam</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/dvorec.visoko" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100085491713215" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h3l1-4h-4v-2a1 1 0 0 1 1-1z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="footer-copy">&copy; 2026 Kavarna Visoko. Vse pravice pridržane.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
