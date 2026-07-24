@@ -613,6 +613,28 @@ em{
 }
 .event-card-image img{ width: 100%; display: block; object-fit: cover; }
 .event-card-body p{ color: var(--ink-soft); margin: 14px 0; }
+
+/* dogodek brez slike — enostolpčna, še vedno lepa postavitev */
+.event-card.no-image{
+  grid-template-columns: 1fr;
+  max-width: 640px;
+  text-align: left;
+  padding: 36px 0;
+}
+.event-card.no-image .event-card-body{
+  padding: 28px 32px;
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
+.loading-note{
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-style: italic;
+  grid-column: 1 / -1;
+}
+
 .event-note{
   padding-top: 44px;
   max-width: 640px;

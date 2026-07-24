@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Skrbništvo · Kavarna Visoko</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-wrap">
+
+  <!-- PRIJAVA -->
+  <section id="loginScreen" class="admin-login-card">
+    <span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt=""></span>
+    <h1>Skrbništvo</h1>
+    <p class="admin-note">Ta stran ni povezana iz menija strani &mdash; dostopna je samo tistim, ki poznajo to povezavo in imajo skrbniško prijavo.</p>
+    <form id="loginForm">
+      <label>
+        <span>E-naslov</span>
+        <input type="email" id="loginEmail" required autocomplete="username">
+      </label>
+      <label>
+        <span>Geslo</span>
+        <input type="password" id="loginPassword" required autocomplete="current-password">
+      </label>
+      <button type="submit" class="btn btn-solid">Prijava</button>
+      <p class="admin-status" id="loginStatus" hidden></p>
+    </form>
+    <p class="admin-setup-note">Firebase še ni nastavljen? Glej <code>NAVODILA-ADMIN.md</code> za korake.</p>
+  </section>
+
+  <!-- SKRBNIŠKA NADZORNA PLOŠČA -->
+  <section id="adminScreen" class="admin-dashboard" hidden>
+    <header class="admin-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt=""></span>
+        <span class="brand-text">Kavarna<em>Visoko</em></span>
+        <span class="admin-pill">Skrbništvo</span>
+      </div>
+      <button id="logoutBtn" class="btn btn-line">Odjava</button>
+    </header>
+
+    <div class="admin-grid">
+
+      <!-- PONUDBA -->
+      <div class="admin-panel">
+        <h2>Ponudba</h2>
+        <p class="admin-panel-desc">Dodajte ali odstranite postavko ponudbe. Slika je neobvezna &mdash; brez nje se kartica prikaže s preprosto ikono.</p>
+
+        <form id="ponudbaForm" class="admin-form">
+          <label><span>Naziv</span><input type="text" id="pNaziv" placeholder="npr. Espresso" required></label>
+          <label><span>Opis</span><textarea id="pOpis" rows="2" placeholder="Kratek opis postavke" required></textarea></label>
+          <label><span>Slika (URL, neobvezno)</span><input type="text" id="pSlika" placeholder="slike/moja-slika.jpg"></label>
+          <button type="submit" class="btn btn-solid">Dodaj v ponudbo</button>
+        </form>
+
+        <div class="admin-list" id="ponudbaList">
+          <p class="admin-list-empty">Nalagam &hellip;</p>
+        </div>
+      </div>
+
+      <!-- DOGODKI -->
+      <div class="admin-panel">
+        <h2>Dogodki</h2>
+        <p class="admin-panel-desc">Dodajte nov dogodek ali izbrišite tistega, ki je že mimo.</p>
+
+        <form id="dogodekForm" class="admin-form">
+          <label><span>Naziv</span><input type="text" id="dNaziv" placeholder="npr. Tenis v belem" required></label>
+          <label><span>Kdaj</span><input type="text" id="dDatum" placeholder="npr. Junij 2027"></label>
+          <label><span>Opis</span><textarea id="dOpis" rows="2" placeholder="Kratek opis dogodka" required></textarea></label>
+          <label><span>Slika (URL, neobvezno)</span><input type="text" id="dSlika" placeholder="slike/moja-slika.jpg"></label>
+          <button type="submit" class="btn btn-solid">Dodaj dogodek</button>
+        </form>
+
+        <div class="admin-list" id="dogodkiList">
+          <p class="admin-list-empty">Nalagam &hellip;</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="data.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

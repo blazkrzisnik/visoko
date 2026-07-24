@@ -1,0 +1,188 @@
+/* =========================================================================
+   ADMIN.CSS — skrbniška plošča (uporablja iste --spremenljivke kot style.css)
+   ========================================================================= */
+
+.admin-body{
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+.admin-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+/* ---------- prijava ---------- */
+.admin-login-card{
+  max-width: 420px;
+  margin: 8vh auto 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  text-align: center;
+}
+.admin-login-card .brand-mark{ width: 48px; height: 48px; margin: 0 auto 18px; }
+.admin-login-card h1{
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+.admin-note{
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  margin-bottom: 26px;
+  line-height: 1.5;
+}
+.admin-login-card form{
+  display: grid;
+  gap: 16px;
+  text-align: left;
+}
+.admin-login-card label{
+  display: grid;
+  gap: 6px;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.admin-login-card input{
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  padding: 12px 14px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+}
+.admin-login-card .btn{ margin-top: 4px; }
+.admin-status{
+  font-size: 0.86rem;
+  margin: 0;
+  color: var(--ink-soft);
+}
+.admin-status-error{ color: #8C4A3D; font-weight: 600; }
+.admin-setup-note{
+  margin-top: 22px;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+.admin-setup-note code{
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ---------- nadzorna plošča ---------- */
+.admin-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+}
+.admin-header .brand-mark{ width: 30px; height: 30px; }
+.admin-header .brand{ display: flex; align-items: center; gap: 10px; }
+.admin-pill{
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--brand);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.admin-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+.admin-panel{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+.admin-panel h2{ margin-bottom: 8px; }
+.admin-panel-desc{
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  margin: 0 0 20px;
+}
+
+.admin-form{
+  display: grid;
+  gap: 14px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px dashed var(--line);
+}
+.admin-form label{
+  display: grid;
+  gap: 6px;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.admin-form input,
+.admin-form textarea{
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  resize: vertical;
+}
+.admin-form .btn{ justify-self: start; }
+
+.admin-list{
+  display: grid;
+  gap: 10px;
+}
+.admin-list-empty{
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+.admin-list-row{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.admin-list-text{ display: flex; flex-direction: column; gap: 4px; }
+.admin-list-text strong{ color: var(--brand-dark); font-size: 0.94rem; }
+.admin-list-text span{ color: var(--ink-soft); font-size: 0.84rem; line-height: 1.4; }
+.admin-delete-btn{
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid var(--line);
+  color: #8C4A3D;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.admin-delete-btn:hover{
+  background: #8C4A3D;
+  color: #fff;
+  border-color: #8C4A3D;
+}
+
+@media (max-width: 760px){
+  .admin-grid{ grid-template-columns: 1fr; }
+  .admin-wrap{ padding: 40px 18px 70px; }
+}
