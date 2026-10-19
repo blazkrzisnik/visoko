@@ -1,103 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dogodki · Kavarna Visoko</title>
-<meta name="description" content="Tenis v belem, poroke in dogodki na Dvorcu Visoko čez vse leto.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="site-header" id="vrh">
-  <div class="wrap header-inner">
-    <a href="index.html" class="brand">
-      <span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt=""></span>
-      <span class="brand-text">Kavarna<em>Visoko</em></span>
-    </a>
-    <nav class="main-nav" aria-label="Glavni meni">
-      <a href="index.html">Domov</a>
-      <a href="zgodba.html">Zgodba</a>
-      <a href="ponudba.html">Ponudba</a>
-      <a href="okolica.html">Okolica</a>
-      <a href="dogodki.html" class="active">Dogodki</a>
-    </nav>
-    <a href="rezervacije.html" class="btn btn-line nav-cta">Rezervacije</a>
-    <button class="burger" id="burger" aria-label="Odpri meni" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobilni meni">
-      <a href="index.html">Domov</a>
-      <a href="zgodba.html">Zgodba</a>
-      <a href="ponudba.html">Ponudba</a>
-      <a href="okolica.html">Okolica</a>
-      <a href="dogodki.html" class="active">Dogodki</a>
-    <a href="rezervacije.html">Rezervacije</a>
-  </nav>
-</header>
-
-<section class="page-hero">
-  <div class="wrap">
-    <p class="eyebrow reveal">Dogajanje na Visokem</p>
-    <h1 class="reveal">Dogodki skozi vse leto</h1>
-    <p class="hero-lead reveal">Od tradicionalnega tenisa v beli opravi do porok in sprehodov po razstavah &mdash; na Visokem se dogaja skozi vse leto.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div id="dogodkiGrid">
-      <p class="loading-note">Nalagam dogodke &hellip;</p>
-    </div>
-
-    <div class="event-note reveal">
-      <p class="eyebrow">V pripravi</p>
-      <h3>Muzejski večeri in degustacije</h3>
-      <p class="section-lead">Čez leto pripravljamo tudi vodene oglede razstav, degustacije zelišč iz našega vrta in praznične dogodke. Sledite nam na Instagramu in Facebooku, da vam noben dogodek ne uide.</p>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-col">
-      <a href="index.html" class="brand brand-footer">
-        <span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt=""></span>
-        <span class="brand-text">Kavarna<em>Visoko</em></span>
-      </a>
-      <p class="footer-note">Visoko pri Poljanah 1, 4220 Škofja Loka &mdash; v okrilju Dvorca Visoko, last Občine Gorenja vas &ndash; Poljane.</p>
-    </div>
-    <div class="footer-col">
-      <p class="footer-heading">Kontakt</p>
-      <p class="footer-line">030 489 177</p>
-      <p class="footer-line"><a href="mailto:dvorec.visoko@poljanskadolina.com">dvorec.visoko@poljanskadolina.com</a></p>
-      <p class="footer-line"><a href="https://www.poljanskadolina.com/sl/">poljanskadolina.com</a></p>
-    </div>
-    <div class="footer-col">
-      <p class="footer-heading">Sledite nam</p>
-      <div class="socials">
-        <a href="https://www.instagram.com/dvorec.visoko" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100085491713215" aria-label="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h3l1-4h-4v-2a1 1 0 0 1 1-1z"/></svg>
-        </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dogodki · Kavarna Visoko</title>
+    <meta name="description" content="Tenis v belem, poroke in dogodki na Dvorcu Visoko čez vse leto." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.min.css" />
+  </head>
+  <body>
+    <header class="site-header" id="vrh">
+      <div class="wrap header-inner">
+        <a href="index.html" class="brand"
+          ><span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt="" /></span
+          ><span class="brand-text">Kavarna<em>Visoko</em></span></a
+        >
+        <nav class="main-nav" aria-label="Glavni meni">
+          <a href="index.html">Domov</a> <a href="zgodba.html">Zgodba</a> <a href="ponudba.html">Ponudba</a>
+          <a href="okolica.html">Okolica</a> <a href="dogodki.html" class="active">Dogodki</a>
+        </nav>
+        <a href="rezervacije.html" class="btn btn-line nav-cta">Rezervacije</a>
+        <button class="burger" id="burger" aria-label="Odpri meni" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
-    </div>
-  </div>
-  <div class="wrap">
-    <p class="footer-copy">&copy; 2026 Kavarna Visoko. Vse pravice pridržane.</p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-<script src="data.js"></script>
-<script>document.addEventListener("DOMContentLoaded", () => renderDogodki("dogodkiGrid"));</script>
-</body>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobilni meni">
+        <a href="index.html">Domov</a> <a href="zgodba.html">Zgodba</a> <a href="ponudba.html">Ponudba</a>
+        <a href="okolica.html">Okolica</a> <a href="dogodki.html" class="active">Dogodki</a> <a href="rezervacije.html">Rezervacije</a>
+      </nav>
+    </header>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow reveal">Dogajanje na Visokem</p>
+        <h1 class="reveal">Dogodki skozi vse leto</h1>
+        <p class="hero-lead reveal">
+          Od tradicionalnega tenisa v beli opravi do porok in sprehodov po razstavah &ndash; na Visokem se dogaja skozi vse leto.
+        </p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <div id="dogodkiGrid"><p class="loading-note">Nalagam dogodke &hellip;</p></div>
+        <div class="event-note reveal">
+          <p class="eyebrow">V pripravi</p>
+          <h3>Muzejski večeri in degustacije</h3>
+          <p class="section-lead">
+            Čez leto pripravljamo tudi vodene oglede razstav, degustacije zelišč iz našega vrta in praznične dogodke. Sledite nam na
+            Instagramu in Facebooku, da vam noben dogodek ne uide.
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div class="footer-col">
+          <a href="index.html" class="brand brand-footer"
+            ><span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt="" /></span
+            ><span class="brand-text">Kavarna<em>Visoko</em></span></a
+          >
+          <p class="footer-note">
+            Visoko pri Poljanah 1, 4220 Škofja Loka &ndash; v okrilju Dvorca Visoko, last Občine Gorenja vas &ndash; Poljane.
+          </p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-heading">Kontakt</p>
+          <p class="footer-line">030 489 177</p>
+          <p class="footer-line"><a href="mailto:dvorec.visoko@poljanskadolina.com">dvorec.visoko@poljanskadolina.com</a></p>
+          <p class="footer-line"><a href="https://www.poljanskadolina.com/sl/">poljanskadolina.com</a></p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-heading">Sledite nam</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/dvorec.visoko" aria-label="Instagram"
+              ><svg viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="1" />
+              </svg> </a
+            ><a href="https://www.facebook.com/profile.php?id=100085491713215" aria-label="Facebook"
+              ><svg viewBox="0 0 24 24"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h3l1-4h-4v-2a1 1 0 0 1 1-1z" /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="wrap"><p class="footer-copy">&copy; 2026 Kavarna Visoko. Vse pravice pridržane.</p></div>
+    </footer>
+    <script src="script.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="data.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => renderDogodki("dogodkiGrid"));
+    </script>
+  </body>
 </html>

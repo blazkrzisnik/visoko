@@ -1,9 +1,8 @@
 /* =========================================================================
    KAVARNA VISOKO — podatkovni sloj (ponudba & dogodki)
    -------------------------------------------------------------------------
-   Ta datoteka poskrbi, da se kartice na straneh "Ponudba" in "Dogodki"
-   izrišejo vedno po enaki predlogi (template), ne glede na to, ali imajo
-   sliko ali ne, in ne glede na to, ali podatki prihajajo iz Supabase
+   Ta datoteka poskrbi, da se ponudba (cenik s hišno posebnostjo) in
+   kartice dogodkov izrišejo vedno po enaki predlogi (template), ne glede na to, ali podatki prihajajo iz Supabase
    (ki jih admin ureja prek admin.html) ali iz spodnjih rezervnih (SEED)
    podatkov.
 
@@ -37,25 +36,46 @@ function initSupabase() {
 }
 
 // === 2) REZERVNI (SEED) PODATKI — prikazani, dokler Supabase ni nastavljen ali prazen ===
+// Polja ponudbe: naziv, opis, cena (besedilo, npr. "2,60 €"), kategorija,
+// posebnost (true = prikazano v pasici »Hišna posebnost« na vrhu strani), slika.
+// OPOMBA: cene spodaj so okvirne in jih je treba popraviti v skrbništvu.
+const KATEGORIJE_PONUDBE = ["Kava", "Topli napitki", "Hladni napitki", "Sladice"];
+
 const SEED_PONUDBA = [
-  { naziv: "Kava", opis: "Espresso, kapučino in filter kava iz skrbno izbranih zrn, postrežena v tišini stoletne veže.", slika: "" },
-  { naziv: "Domače sladice", opis: "Torte in peciva iz naše kuhinje, pečena po receptih, ki dišijo po kmečki jedilnici izpred dveh stoletij.", slika: "" },
-  { naziv: "Zeliščni napitki & matcha", opis: "Limonade in čaji z zelišči iz vrta ob dvorcu, poleti pa tudi topla ali ice matcha latte, po želji z okusi.", slika: "" },
-  { naziv: "Poletna terasa", opis: "Miza pod kostanjem, pogled na kozolec in dolino — najboljši prostor za počasno popoldne.", slika: "" }
+  { naziv: "Metina tortica", kategorija: "Sladice", cena: "4,50 €", posebnost: true, slika: "",
+    opis: "Hišna tortica, poimenovana po Meti iz Tavčarjevega Cvetja v jeseni – rahel orehov biskvit, kremna skuta in med z domačega čebelnjaka." },
+  { naziv: "Espresso", kategorija: "Kava", cena: "1,80 €", opis: "Kratka, polna kava iz skrbno izbranih zrn.", slika: "" },
+  { naziv: "Kapučino", kategorija: "Kava", cena: "2,60 €", opis: "Espresso z žametno mlečno peno.", slika: "" },
+  { naziv: "Bela kava", kategorija: "Kava", cena: "2,40 €", opis: "Espresso z več toplega mleka.", slika: "" },
+  { naziv: "Filter kava", kategorija: "Kava", cena: "2,80 €", opis: "Počasi pripravljena, mehka in aromatična.", slika: "" },
+  { naziv: "Vroča čokolada", kategorija: "Topli napitki", cena: "3,20 €", opis: "Gosta, temna čokolada, po želji s smetano.", slika: "" },
+  { naziv: "Zeliščni čaj z vrta", kategorija: "Topli napitki", cena: "2,50 €", opis: "Mešanica zelišč iz vrta ob dvorcu.", slika: "" },
+  { naziv: "Matcha latte", kategorija: "Topli napitki", cena: "3,90 €", opis: "Topla matcha z mlečno peno, po želji z okusom – za okuse vprašajte osebje.", slika: "" },
+  { naziv: "Domača limonada", kategorija: "Hladni napitki", cena: "3,50 €", opis: "Z zelišči z našega vrta.", slika: "" },
+  { naziv: "Ice matcha latte", kategorija: "Hladni napitki", cena: "4,20 €", opis: "Matcha z mlekom na ledu, po želji z okusom.", slika: "" },
+  { naziv: "Ledena kava", kategorija: "Hladni napitki", cena: "3,40 €", opis: "Espresso na ledu z mlekom.", slika: "" },
+  { naziv: "Domača torta dneva", kategorija: "Sladice", cena: "3,90 €", opis: "Vsak dan druga – povprašajte pri šanku.", slika: "" },
+  { naziv: "Jabolčni zavitek", kategorija: "Sladice", cena: "3,50 €", opis: "Po receptu, ki diši po kmečki jedilnici izpred dveh stoletij.", slika: "" }
 ];
 
 const SEED_DOGODKI = [
   {
+    naziv: "Adventni sejem na Dvorcu Visoko",
+    datum: "Nedelja, 13. 12. 2026, 14.00–18.00",
+    opis: "Unikatni izdelki, ročno izdelana darila, praznične dekoracije in domače dobrote lokalnih ustvarjalcev, s prazničnimi delavnicami in glasbo. Razstavljavci se lahko prijavijo do 26. 10. 2026 pri Zavodu Poljanska dolina.",
+    slika: "slike/dvorec main.png"
+  },
+  {
     naziv: "Tenis v belem",
     datum: "Vsako leto junija",
-    opis: "Letos smo uspešno izpeljali že 5. Tenis v belem na travnatem igrišču pri Dvorcu Visoko — dan s kosilom, izločilnimi dvoboji in finalom v tradicionalni beli opravi z lesenimi loparji, v sodelovanju s Teniškim klubom Gorenja vas.",
+    opis: "Letos smo uspešno izpeljali že 5. Tenis v belem na travnatem igrišču pri Dvorcu Visoko – dan s kosilom, izločilnimi dvoboji in finalom v tradicionalni beli opravi z lesenimi loparji, v sodelovanju s Teniškim klubom Gorenja vas.",
     slika: "slike/tenis v belem main.png"
   },
   {
     naziv: "Poroke pod kozolcem",
     datum: "Vse leto",
-    opis: "Skozi poletje na Visokem gostimo civilne poroke v poročnem paviljonu pred dvorcem in slavja v prenovljeni dvorani v štali.",
-    slika: "slike/paviljon.jpeg"
+    opis: "Poročni obred v zunanjem paviljonu z razgledom na baročno cerkev sv. Volbenka, v Visoškem toplarju ali v poročni dvorani z zgodovinskimi poslikavami, slavje pa v Dvorani pod velbi za do 200 gostov.",
+    slika: "slike/kozolec.png"
   }
 ];
 
@@ -66,27 +86,49 @@ function escapeHTML(str) {
   return div.innerHTML;
 }
 
-function defaultCupIconSVG() {
-  return '<svg viewBox="0 0 48 48"><path d="M10 18h22v10a11 11 0 0 1-11 11 11 11 0 0 1-11-11z"/><path d="M32 20h4a5 5 0 0 1 0 10h-4"/></svg>';
+// === 4) PREDLOGA (TEMPLATE) ZA PONUDBO ===
+function isPosebnost(item) {
+  return item.posebnost === true || item.posebnost === "true";
 }
 
-// === 4) PREDLOGA (TEMPLATE) ZA KARTICO PONUDBE ===
-function menuCardHTML(item) {
+// pasica »Hišna posebnost« na vrhu strani
+function posebnostHTML(item) {
   const hasImg = item.slika && item.slika.trim() !== "";
-  if (hasImg) {
-    return `<article class="menu-card menu-card-image reveal is-visible">
-      <img src="${escapeHTML(item.slika)}" alt="${escapeHTML(item.naziv)}">
-      <div class="menu-card-body">
-        <h3>${escapeHTML(item.naziv)}</h3>
-        <p>${escapeHTML(item.opis)}</p>
-      </div>
-    </article>`;
-  }
-  return `<article class="menu-card reveal is-visible">
-    <div class="menu-icon" aria-hidden="true">${defaultCupIconSVG()}</div>
-    <h3>${escapeHTML(item.naziv)}</h3>
-    <p>${escapeHTML(item.opis)}</p>
-  </article>`;
+  return `<div class="wrap special-inner${hasImg ? " has-image" : ""}">
+    <div class="special-text">
+      <p class="special-eyebrow">Hišna posebnost</p>
+      <h1>${escapeHTML(item.naziv)}</h1>
+      <p class="special-desc">${escapeHTML(item.opis)}</p>
+      ${item.cena ? `<p class="special-price">${escapeHTML(item.cena)}</p>` : ""}
+    </div>
+    ${hasImg ? `<div class="special-image"><img src="${escapeHTML(item.slika)}" alt="${escapeHTML(item.naziv)}"></div>` : ""}
+  </div>`;
+}
+
+// ena vrstica cenika
+function menuRowHTML(item) {
+  return `<li class="menu-row">
+    <div class="menu-row-head">
+      <h3>${escapeHTML(item.naziv)}${isPosebnost(item) ? ' <span class="menu-badge">Hišna posebnost</span>' : ""}</h3>
+      ${item.cena ? `<span class="menu-price">${escapeHTML(item.cena)}</span>` : ""}
+    </div>
+    ${item.opis ? `<p>${escapeHTML(item.opis)}</p>` : ""}
+  </li>`;
+}
+
+// seznam, razdeljen po kategorijah (neznane kategorije se izpišejo na koncu)
+function menuListHTML(items) {
+  const groups = {};
+  items.forEach(item => {
+    const kat = (item.kategorija || "").trim() || "Ponudba";
+    (groups[kat] = groups[kat] || []).push(item);
+  });
+  const order = KATEGORIJE_PONUDBE.filter(k => groups[k])
+    .concat(Object.keys(groups).filter(k => !KATEGORIJE_PONUDBE.includes(k)));
+  return order.map(kat => `<section class="menu-group">
+      <h2 class="menu-group-title">${escapeHTML(kat)}</h2>
+      <ul class="menu-list">${groups[kat].map(menuRowHTML).join("")}</ul>
+    </section>`).join("");
 }
 
 // === 5) PREDLOGA (TEMPLATE) ZA KARTICO DOGODKA ===
@@ -113,7 +155,7 @@ function eventCardHTML(item, index) {
 }
 
 // === 6) IZRIS NA STRANI ===
-async function renderPonudba(containerId) {
+async function renderPonudba(containerId, specialId) {
   const el = document.getElementById(containerId);
   if (!el) return;
   let items = SEED_PONUDBA;
@@ -126,7 +168,13 @@ async function renderPonudba(containerId) {
       console.warn("Ponudbe ni bilo mogoče naložiti iz Supabase, prikazujem privzete.", e);
     }
   }
-  el.innerHTML = items.map(menuCardHTML).join("");
+  const special = items.find(isPosebnost);
+  const specialEl = specialId && document.getElementById(specialId);
+  if (specialEl) {
+    if (special) specialEl.innerHTML = posebnostHTML(special);
+    else specialEl.hidden = true;
+  }
+  el.innerHTML = menuListHTML(items);
 }
 
 async function renderDogodki(containerId) {

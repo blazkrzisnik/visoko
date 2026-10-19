@@ -44,13 +44,21 @@ const bookingVisual = document.querySelector('.booking-visual');
 const bookingImage = document.getElementById('bookingImage');
 const bookingTitle = document.getElementById('bookingTitle');
 const bookingDesc = document.getElementById('bookingDesc');
+const bookingCta = document.getElementById('bookingCta');
 
 if (bookingItems.length && bookingVisual && bookingImage) {
   bookingItems.forEach(item => {
     item.addEventListener('click', () => {
       if (item.classList.contains('active')) return;
-      bookingItems.forEach(i => i.classList.remove('active'));
+      bookingItems.forEach(i => {
+        i.classList.remove('active');
+        i.setAttribute('aria-selected', 'false');
+      });
       item.classList.add('active');
+      item.setAttribute('aria-selected', 'true');
+      if (bookingCta && item.dataset.namen) {
+        bookingCta.href = 'rezervacije.html?namen=' + encodeURIComponent(item.dataset.namen) + '#povprasevanje';
+      }
 
       bookingVisual.classList.add('is-switching');
       setTimeout(() => {
@@ -62,6 +70,13 @@ if (bookingItems.length && bookingVisual && bookingImage) {
       }, 220);
     });
   });
+}
+
+// predizpolni namen povpraševanja, če pridemo iz izbirnika na strani Okolica
+const namenSelect = document.querySelector('#visitForm select[name="namen"]');
+if (namenSelect) {
+  const namen = new URLSearchParams(window.location.search).get('namen');
+  if (namen && [...namenSelect.options].some(o => o.text === namen)) namenSelect.value = namen;
 }
 
 // oddaja obrazca za povpraševanja (Formspree, brez lastnega strežnika)
@@ -84,7 +99,7 @@ if (visitForm && formStatus) {
         headers: { 'Accept': 'application/json' }
       });
       if (response.ok) {
-        formStatus.textContent = 'Hvala za vaše povpraševanje — kmalu se vam oglasimo osebno.';
+        formStatus.textContent = 'Hvala za vaše povpraševanje – kmalu se vam oglasimo osebno.';
         formStatus.className = 'form-status form-status-ok';
         visitForm.reset();
       } else {

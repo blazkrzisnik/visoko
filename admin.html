@@ -1,96 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>Skrbništvo · Kavarna Visoko</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="admin.css">
-</head>
-<body class="admin-body">
-
-<div class="admin-wrap">
-
-  <!-- PRIJAVA -->
-  <section id="loginScreen" class="admin-login-card">
-    <span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt=""></span>
-    <h1>Skrbništvo</h1>
-    <p class="admin-note">Ta stran ni povezana iz menija strani &mdash; dostopna je samo tistim, ki poznajo to povezavo in imajo skrbniško prijavo.</p>
-    <form id="loginForm">
-      <label>
-        <span>E-naslov</span>
-        <input type="email" id="loginEmail" required autocomplete="username">
-      </label>
-      <label>
-        <span>Geslo</span>
-        <input type="password" id="loginPassword" required autocomplete="current-password">
-      </label>
-      <button type="submit" class="btn btn-solid">Prijava</button>
-      <p class="admin-status" id="loginStatus" hidden></p>
-    </form>
-    <p class="admin-setup-note">Firebase še ni nastavljen? Glej <code>NAVODILA-ADMIN.md</code> za korake.</p>
-  </section>
-
-  <!-- SKRBNIŠKA NADZORNA PLOŠČA -->
-  <section id="adminScreen" class="admin-dashboard" hidden>
-    <header class="admin-header">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt=""></span>
-        <span class="brand-text">Kavarna<em>Visoko</em></span>
-        <span class="admin-pill">Skrbništvo</span>
-      </div>
-      <button id="logoutBtn" class="btn btn-line">Odjava</button>
-    </header>
-
-    <div class="admin-grid">
-
-      <!-- PONUDBA -->
-      <div class="admin-panel">
-        <h2>Ponudba</h2>
-        <p class="admin-panel-desc">Dodajte ali odstranite postavko ponudbe. Slika je neobvezna &mdash; brez nje se kartica prikaže s preprosto ikono.</p>
-
-        <form id="ponudbaForm" class="admin-form">
-          <label><span>Naziv</span><input type="text" id="pNaziv" placeholder="npr. Espresso" required></label>
-          <label><span>Opis</span><textarea id="pOpis" rows="2" placeholder="Kratek opis postavke" required></textarea></label>
-          <label><span>Slika (URL, neobvezno)</span><input type="text" id="pSlika" placeholder="slike/moja-slika.jpg"></label>
-          <button type="submit" class="btn btn-solid">Dodaj v ponudbo</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Skrbništvo · Kavarna Visoko</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.min.css" />
+    <link rel="stylesheet" href="admin.min.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-wrap">
+      <section id="loginScreen" class="admin-login-card">
+        <span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt="" /></span>
+        <h1>Skrbništvo</h1>
+        <p class="admin-note">
+          Do te strani ne vodi nobena povezava v meniju &ndash; dostopna je samo tistim, ki poznajo to povezavo in imajo skrbniško prijavo.
+        </p>
+        <form id="loginForm">
+          <label><span>E-naslov</span> <input type="email" id="loginEmail" required autocomplete="username" /></label>
+          <label><span>Geslo</span> <input type="password" id="loginPassword" required autocomplete="current-password" /></label>
+          <button type="submit" class="btn btn-solid">Prijava</button>
+          <p class="admin-status" id="loginStatus" hidden></p>
         </form>
-
-        <div class="admin-list" id="ponudbaList">
-          <p class="admin-list-empty">Nalagam &hellip;</p>
+        <p class="admin-setup-note">Supabase še ni nastavljen? Navodila so v datoteki <code>NAVODILA-ADMIN.md</code>.</p>
+      </section>
+      <section id="adminScreen" class="admin-dashboard" hidden>
+        <header class="admin-header">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true"><img src="slike/logo.png" alt="" /></span
+            ><span class="brand-text">Kavarna<em>Visoko</em></span> <span class="admin-pill">Skrbništvo</span>
+          </div>
+          <button id="logoutBtn" class="btn btn-line">Odjava</button>
+        </header>
+        <div class="admin-grid">
+          <div class="admin-panel">
+            <h2>Ponudba</h2>
+            <p class="admin-panel-desc">
+              Dodajte, uredite ali odstranite postavko cenika. Postavka, označena kot hišna posebnost, se prikaže v temni pasici na vrhu
+              strani Ponudba (če jih označite več, se prikaže prva).
+            </p>
+            <form id="ponudbaForm" class="admin-form">
+              <input type="hidden" id="pId" />
+              <label><span>Naziv</span><input id="pNaziv" placeholder="npr. Kapučino" required /></label>
+              <div class="admin-form-row">
+                <label
+                  ><span>Kategorija</span>
+                  <select id="pKategorija">
+                    <option>Kava</option>
+                    <option>Topli napitki</option>
+                    <option>Hladni napitki</option>
+                    <option>Sladice</option>
+                  </select></label
+                >
+                <label><span>Cena</span><input id="pCena" placeholder="npr. 2,60 €" /></label>
+              </div>
+              <label><span>Opis</span><textarea id="pOpis" rows="2" placeholder="Kratek opis postavke" required></textarea></label>
+              <label class="admin-check"
+                ><input type="checkbox" id="pPosebnost" /> <span>Hišna posebnost (prikaži v pasici na vrhu strani)</span></label
+              >
+              <label
+                ><span>Slika (neobvezno, prikaže se samo pri hišni posebnosti)</span>
+                <div class="file-picker">
+                  <label class="file-picker-btn" for="pSlika">Izberi sliko</label>
+                  <input type="file" id="pSlika" accept="image/*" class="file-picker-input" />
+                  <span class="file-picker-name" id="pSlikaName">Ni izbrane slike</span>
+                </div></label
+              >
+              <label><span>… ali vpišite pot/URL slike</span> <input id="pSlikaURL" placeholder="npr. slike/tortica.jpg" /></label>
+              <div class="admin-form-actions">
+                <button type="submit" class="btn btn-solid" id="pSubmit">Dodaj v ponudbo</button>
+                <button type="button" class="btn btn-line" id="pCancel" hidden>Prekliči urejanje</button>
+              </div>
+            </form>
+            <div class="admin-list" id="ponudbaList"><p class="admin-list-empty">Nalagam &hellip;</p></div>
+          </div>
+          <div class="admin-panel">
+            <h2>Dogodki</h2>
+            <p class="admin-panel-desc">Dodajte nov dogodek ali izbrišite tistega, ki je že mimo.</p>
+            <form id="dogodekForm" class="admin-form">
+              <label><span>Naziv</span><input id="dNaziv" placeholder="npr. Tenis v belem" required /></label>
+              <label><span>Kdaj</span><input id="dDatum" placeholder="npr. junij 2027" /></label>
+              <label><span>Opis</span><textarea id="dOpis" rows="2" placeholder="Kratek opis dogodka" required></textarea></label>
+              <label
+                ><span>Slika (neobvezno)</span>
+                <div class="file-picker">
+                  <label class="file-picker-btn" for="dSlika">Izberi sliko</label>
+                  <input type="file" id="dSlika" accept="image/*" class="file-picker-input" />
+                  <span class="file-picker-name" id="dSlikaName">Ni izbrane slike</span>
+                </div></label
+              >
+              <label><span>… ali vpišite pot/URL slike</span> <input id="dSlikaURL" placeholder="npr. slike/moja-slika.jpg" /></label>
+              <button type="submit" class="btn btn-solid">Dodaj dogodek</button>
+            </form>
+            <div class="admin-list" id="dogodkiList"><p class="admin-list-empty">Nalagam &hellip;</p></div>
+          </div>
         </div>
-      </div>
-
-      <!-- DOGODKI -->
-      <div class="admin-panel">
-        <h2>Dogodki</h2>
-        <p class="admin-panel-desc">Dodajte nov dogodek ali izbrišite tistega, ki je že mimo.</p>
-
-        <form id="dogodekForm" class="admin-form">
-          <label><span>Naziv</span><input type="text" id="dNaziv" placeholder="npr. Tenis v belem" required></label>
-          <label><span>Kdaj</span><input type="text" id="dDatum" placeholder="npr. Junij 2027"></label>
-          <label><span>Opis</span><textarea id="dOpis" rows="2" placeholder="Kratek opis dogodka" required></textarea></label>
-          <label><span>Slika (URL, neobvezno)</span><input type="text" id="dSlika" placeholder="slike/moja-slika.jpg"></label>
-          <button type="submit" class="btn btn-solid">Dodaj dogodek</button>
-        </form>
-
-        <div class="admin-list" id="dogodkiList">
-          <p class="admin-list-empty">Nalagam &hellip;</p>
-        </div>
-      </div>
-
+      </section>
     </div>
-  </section>
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-<script src="data.js"></script>
-<script src="admin.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="data.min.js"></script>
+    <script src="admin.min.js"></script>
+  </body>
 </html>
